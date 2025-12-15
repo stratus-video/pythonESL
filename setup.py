@@ -20,19 +20,21 @@ esl = Extension(
              'ESL/esl_event.c',
              'ESL/esl_json.c',
              'ESL/esl_threadmutex.c',
+             'ESL/cJSON.c',
              'ESL/esl_oop.cpp',
              'ESL/ESL.i'],
-    swig_opts=['-classic', '-c++', '-DMULTIPLICITY', '-threads', '-I./ESL'],
+    swig_opts=['-c++', '-py3', '-threads', '-I./ESL'],
+    include_dirs=['./ESL'],
     extra_compile_args=['-I./ESL']
 )
 
 setup(
     name='python-ESL',
-    version='1.4.18',
+    version='1.10.11',
     author='FreeSWITCH Developers',
     description='FreeSWITCH Event Socket Library for Python',
-    url='https://github.com/sangoma/python-ESL',
-    download_url='https://github.com/sangoma/python-ESL/tarball/1.4.18',
+    url='https://github.com/stratus-video/pythonESL',
+    download_url='https://github.com/stratus-video/pythonESL/tarball/1.10.11',
     cmdclass={'build': CustomBuild},
     ext_modules=[esl],
     packages=['ESL'],
